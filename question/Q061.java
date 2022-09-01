@@ -1,24 +1,23 @@
 package com.test.question;
 
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class Q061 {
     public static void main(String[] args) {
-        //배열: 덤프
+        //배열:역순
 
-        int[] list = new int[4];
+        int[] nums = new int[5];
 
-        list[0] = 10;
-        list[1] = 20;
-        list[2] = 30;
-        list[3] = 40;
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 0; i < nums.length; i++) {
+            System.out.print("숫자:");
+            nums[i] = scanner.nextInt();
+        }
 
-        String result = dump(list);
-        System.out.printf("nums = %s\n", result);
-    }
+        for (int i = nums.length - 1; i >= 0; --i) {
+            System.out.printf("nums[%d] = %d\n", i, nums[i]);
+        }
 
-    private static String dump(int[] list) {
-        String arrayToString = Arrays.toString(list);
-        return arrayToString;
+
     }
 }

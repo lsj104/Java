@@ -1,40 +1,39 @@
 package com.test.question;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Q065 {
     public static void main(String[] args) {
-        //배열:삽입
+        //배열:최대 최소
 
-        //Integer[] arr = {5, 6, 1, 3, 2, 0, 0, 0, 0,0};
-        Integer[] arr = {5, 6, 1, 3, 2, 8, 7, 4, 10, 9};
-        int index = 0;
-        int value = 0;
+        int max = 0;
+        int min = 0;
+
+        int[] num = new int[20];
+        Random randomd = new Random();
+
+        for (int i = 0; i < num.length; i++) { //20개 난수 생성
+            num[i] = randomd.nextInt(20) + 1;
+        }
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("삽입 위치:");
-        index = scanner.nextInt();
-        System.out.print("값:");
-        value = scanner.nextInt();
+        System.out.print("최대 범위:");
+        max = scanner.nextInt();
+        System.out.print("최소 범위:");
+        min = scanner.nextInt();
 
-        System.out.print("원본: ");
-        System.out.println(Arrays.toString(arr));
+        System.out.print("원본:");
+        for (int i = 0; i < num.length; i++) {
+            System.out.print(num[i] + ",");
+        }
+        System.out.println();
 
-        List<Integer> list = new ArrayList<>(Arrays.asList(arr)); //배열 -> List변환
-        list.add(index, value); //List에 값 추가
-
-        arr = list.toArray(arr); //List -> 배열 변환
-
-
-        System.out.print("결과: ");
-        if (arr.length > 10) { //배열 길이가 10을 넘어가면 마지막요소 삭제
-            Integer[] arr1 = Arrays.copyOfRange(arr, 0, 10);
-            System.out.println(Arrays.toString(arr1));
-        } else {
-            System.out.println(Arrays.toString(arr));
+        System.out.print("결과:");
+        for (int i = 0; i < num.length; i++) {
+            if (num[i] >= min && num[i] <= max) {
+                System.out.print(num[i] + ",");
+            }
         }
 
 
